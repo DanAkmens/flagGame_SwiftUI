@@ -26,6 +26,12 @@ struct SpacingVStack: ViewModifier {
     }
 }
 
+extension View {
+    func vsStackStyle() -> some View {
+        modifier(SpacingVStack())
+    }
+}
+
 struct ContentView: View {
 
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
@@ -73,7 +79,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .modifier(SpacingVStack())
+                .vsStackStyle()
 
                 Spacer()
                 Spacer()
